@@ -58,8 +58,8 @@ public class ObjectReader : MonoBehaviour
 
     public void FabricObject()
     {
-        _currentStep -= 1;
-        _baseStepText.text = _currentStep.ToString("000");
+        _currentStep -= (int)manager.powerClick;
+        _baseStepText.text = _currentStep.ToString("00");
         stepGauge.fillAmount = 1 - ((float)_currentStep / (float)_currentObject.baseStep);
 
         if (_currentStep <= 0)

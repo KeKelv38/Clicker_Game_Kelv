@@ -8,6 +8,8 @@ public class Manager : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
+    public float powerClick = 1;
+
     // Start is called before the first frame update
     void Start()
     {
