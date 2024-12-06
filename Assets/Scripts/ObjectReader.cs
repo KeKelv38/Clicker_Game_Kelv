@@ -12,7 +12,7 @@ public class ObjectReader : MonoBehaviour
     private TextMeshProUGUI _nameText, _baseStepText, _categoryText;
 
     [SerializeField]
-    private Sprite _objectImage;
+    private Image _objectImage;
 
     [SerializeField]
     private ObjectTofabric _currentObject;
@@ -20,17 +20,26 @@ public class ObjectReader : MonoBehaviour
     [SerializeField]
     private ObjectTofabric[] _objectList;
 
+    [SerializeField]
+    private Image stepGauge;
+    [SerializeField]
+    private float _stepGaugeMax;
+
+    public Manager manager;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
 
+        manager = FindFirstObjectByType<Manager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void ReadObject(ObjectTofabric newObject)
@@ -43,18 +52,22 @@ public class ObjectReader : MonoBehaviour
         _baseStepText.text = _currentObject.baseStep.ToString("00");
         _categoryText.text = _currentObject.category.ToString();
 
-        _objectImage = _currentObject.objectImage;
-
+        _objectImage.sprite = _currentObject.objectImage;
+        stepGauge.fillAmount = 0;
     }
 
     public void FabricObject()
     {
-        _currentStep = -1;
+        _currentStep -= 1;
         _baseStepText.text = _currentStep.ToString("000");
+        stepGauge.fillAmount = 1 - ((float)_currentStep / (float)_currentObject.baseStep);
 
         if (_currentStep <= 0)
         {
+            manager.score += _currentObject.coinGain;
+            Debug.Log (_currentObject.coinGain);
 
+            ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
         }
     }
 }

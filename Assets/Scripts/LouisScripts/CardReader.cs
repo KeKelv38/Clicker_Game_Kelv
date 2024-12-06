@@ -61,7 +61,6 @@ public class CardReader : MonoBehaviour
                 Camera.main.backgroundColor = Color.black;
                 break;
             case PokemonType.Metal:
-
                 Camera.main.backgroundColor = Color.gray;
                 break;
             case PokemonType.Combat:

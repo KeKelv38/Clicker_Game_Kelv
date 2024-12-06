@@ -13,4 +13,6 @@ public class ObjectTofabric : ScriptableObject
 
     public Sprite objectImage;
 
+    public int coinGain;
+
 }
