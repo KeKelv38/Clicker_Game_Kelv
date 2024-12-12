@@ -21,7 +21,7 @@ public class ObjectReader : MonoBehaviour
     private ObjectTofabric[] _objectList;
 
     [SerializeField]
-    private Image stepGauge;
+    private Image _stepGauge;
     [SerializeField]
     private float _stepGaugeMax;
 
@@ -53,14 +53,14 @@ public class ObjectReader : MonoBehaviour
         _categoryText.text = _currentObject.category.ToString();
 
         _objectImage.sprite = _currentObject.objectImage;
-        stepGauge.fillAmount = 0;
+        _stepGauge.fillAmount = 0;
     }
 
     public void FabricObject()
     {
         _currentStep -= (int)manager.powerClick;
         _baseStepText.text = _currentStep.ToString("00");
-        stepGauge.fillAmount = 1 - ((float)_currentStep / (float)_currentObject.baseStep);
+        _stepGauge.fillAmount = 1 - ((float)_currentStep / (float)_currentObject.baseStep);
 
         if (_currentStep <= 0)
         {
