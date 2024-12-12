@@ -15,7 +15,7 @@ public class ObjectReader : MonoBehaviour
     private Image _objectImage;
 
     [SerializeField]
-    private ObjectTofabric _currentObject;
+    public ObjectTofabric currentObject;
 
     [SerializeField]
     private ObjectTofabric[] _objectList;
@@ -26,6 +26,8 @@ public class ObjectReader : MonoBehaviour
     private float _stepGaugeMax;
 
     public Manager manager;
+
+    public float coinMultiplicator = 1f;
 
 
     // Start is called before the first frame update
@@ -44,15 +46,15 @@ public class ObjectReader : MonoBehaviour
 
     private void ReadObject(ObjectTofabric newObject)
     {
-        _currentObject = newObject;
+        currentObject = newObject;
 
-        _currentStep = _currentObject.baseStep;
+        _currentStep = currentObject.baseStep;
 
-        _nameText.text = _currentObject.objectName.ToString();
-        _baseStepText.text = _currentObject.baseStep.ToString("00");
-        _categoryText.text = _currentObject.category.ToString();
+        _nameText.text = currentObject.objectName.ToString();
+        _baseStepText.text = currentObject.baseStep.ToString("00");
+        _categoryText.text = currentObject.category.ToString();
 
-        _objectImage.sprite = _currentObject.objectImage;
+        _objectImage.sprite = currentObject.objectImage;
         _stepGauge.fillAmount = 0;
     }
 
@@ -60,12 +62,13 @@ public class ObjectReader : MonoBehaviour
     {
         _currentStep -= (int)manager.powerClick;
         _baseStepText.text = _currentStep.ToString("00");
-        _stepGauge.fillAmount = 1 - ((float)_currentStep / (float)_currentObject.baseStep);
+        _stepGauge.fillAmount = 1 - ((float)_currentStep / (float)currentObject.baseStep);
 
         if (_currentStep <= 0)
         {
-            manager.score += _currentObject.coinGain;
-            Debug.Log (_currentObject.coinGain);
+
+            manager.score += (int)(currentObject.coinGain * coinMultiplicator);
+            Debug.Log (currentObject.coinGain);
 
             ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
         }

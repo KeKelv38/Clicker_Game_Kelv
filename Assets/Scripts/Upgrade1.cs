@@ -7,10 +7,12 @@ public class Upgrade1 : MonoBehaviour
     public Manager manager;
     public ObjectReader objectReader;
 
-    private int upgradeClickCost = 50;
-    private int upgradeAutoClickCost = 10;
-    private int upgradeGainCost = 700;
-    private int upgradeDiversityCost = 300;
+    private int _upgradeClickCost = 10;
+    private int _upgradeAutoClickCost = 20;
+    private int _upgradeGainCost = 30;
+    private int _upgradeDiversityCost = 40;
+
+    private float _autoClickSpeed = 5;
 
 
     // Start is called before the first frame update
@@ -28,27 +30,29 @@ public class Upgrade1 : MonoBehaviour
 
     public void UpgradeClick()
     {
-        if(manager.score >= 50)
+        if(manager.score >= _upgradeClickCost)
         {
-            manager.score -= 50;
+            manager.score -= _upgradeClickCost;
             manager.powerClick = manager.powerClick * 1.5f;
         }
     }
 
-    public void UpagradeAutoClick()
+    public void UpgradeAutoClick()
     {
-        if (manager.score >= upgradeAutoClickCost)
+        if (manager.score >= _upgradeAutoClickCost)
         {
             if(manager.autoClickLevel < 1)
             {
-                manager.score -= upgradeAutoClickCost;
+                manager.score -= _upgradeAutoClickCost;
                 manager.autoClickLevel = 1;
                 StartCoroutine(CoroutineAutoClick());
             }
             else
             {
-                manager.score -= upgradeAutoClickCost;
-                manager.powerClick = manager.powerClick * 2;
+                manager.score -= _upgradeAutoClickCost;
+                _autoClickSpeed = _autoClickSpeed * 0.5f;
+                manager.autoClickLevel++;
+                Debug.Log(manager.autoClickLevel);
             }
         }
     }
@@ -58,7 +62,23 @@ public class Upgrade1 : MonoBehaviour
         while(manager.autoClickLevel > 0)
         {
             objectReader.FabricObject();
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(_autoClickSpeed);
         }
+    }
+
+    public void UpgradeGain()
+    {
+        if (manager.score >= _upgradeGainCost)
+        {
+            manager.score -= _upgradeGainCost;
+            objectReader.coinMultiplicator *= 1.5f;
+            _upgradeGainCost = (int)(Mathf.Pow(_upgradeGainCost, 1.1f));
+            
+        }
+    }
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10,10,100,20), _upgradeGainCost.ToString());
     }
 }

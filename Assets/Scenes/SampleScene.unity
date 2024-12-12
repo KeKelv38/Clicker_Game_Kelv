@@ -750,7 +750,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: 'PowerClick
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -884,7 +886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Diversity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1129,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 126.20001, y: -49.600006}
+  m_AnchoredPosition: {x: 147.57, y: -54}
   m_SizeDelta: {x: 178.113, y: 45.025696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1025880109
@@ -1181,8 +1183,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1638,7 +1640,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 213419762}
         m_TargetAssemblyTypeName: Upgrade1, Assembly-CSharp
-        m_MethodName: UpgradeClick
+        m_MethodName: UpgradeGain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1944,7 +1946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Gain
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2187,7 +2189,7 @@ MonoBehaviour:
   _baseStepText: {fileID: 726012515}
   _categoryText: {fileID: 143972917}
   _objectImage: {fileID: 257177980}
-  _currentObject: {fileID: 11400000, guid: 264d1791818d5564f8e6fa748737de0e, type: 2}
+  currentObject: {fileID: 0}
   _objectList:
   - {fileID: 11400000, guid: 264d1791818d5564f8e6fa748737de0e, type: 2}
   - {fileID: 11400000, guid: 5dc85326fdf7d9046838cc9fcdc4e8c0, type: 2}
@@ -2195,6 +2197,7 @@ MonoBehaviour:
   _stepGauge: {fileID: 1089771679}
   _stepGaugeMax: 0
   manager: {fileID: 0}
+  coinMultiplicator: 1
 --- !u!4 &1705752630
 Transform:
   m_ObjectHideFlags: 0
@@ -2267,7 +2270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Autoclick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
