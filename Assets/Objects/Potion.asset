@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Potion
   m_EditorClassIdentifier: 
   objectName: Potion
-  baseStep: 5
+  baseStep: 8
   category: 0
   objectImage: {fileID: 21300000, guid: 10b87c8d44132a94885d82b2498ca56b, type: 3}
-  coinGain: 3
+  coinGain: 6

@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Upgrade1 : MonoBehaviour
 {
-    public Manager manager;
-    public ObjectReader objectReader;
+    public int upgradeClickCost = 10;
+    public int upgradeAutoClickCost = 20;
+    public int upgradeGainCost = 30;
+    //private int _upgradeDiversityCost = 40;
 
-    private int _upgradeClickCost = 10;
-    private int _upgradeAutoClickCost = 20;
-    private int _upgradeGainCost = 30;
-    private int _upgradeDiversityCost = 40;
-
-    private float _autoClickSpeed = 5;
+    public float autoClickPerSecond = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = FindFirstObjectByType<Manager>();
-        objectReader = FindFirstObjectByType<ObjectReader>();
+
     }
 
     // Update is called once per frame
@@ -30,55 +26,59 @@ public class Upgrade1 : MonoBehaviour
 
     public void UpgradeClick()
     {
-        if(manager.score >= _upgradeClickCost)
+        if(Manager.instance.score >= upgradeClickCost)
         {
-            manager.score -= _upgradeClickCost;
-            manager.powerClick = manager.powerClick * 1.5f;
+            Manager.instance.score -= upgradeClickCost;
+            Manager.instance.powerClick = Manager.instance.powerClick * 1.5f;
+            upgradeClickCost = (int)(upgradeClickCost * 1.5f);
+            Debug.Log(upgradeClickCost);
         }
     }
 
     public void UpgradeAutoClick()
     {
-        if (manager.score >= _upgradeAutoClickCost)
+        if (Manager.instance.score >= upgradeAutoClickCost)
         {
-            if(manager.autoClickLevel < 1)
+            if(Manager.instance.autoClickLevel < 1)
             {
-                manager.score -= _upgradeAutoClickCost;
-                manager.autoClickLevel = 1;
+                autoClickPerSecond = 5;
+                Manager.instance.score -= upgradeAutoClickCost;
+                Manager.instance.autoClickLevel = 1;
                 StartCoroutine(CoroutineAutoClick());
             }
             else
             {
-                manager.score -= _upgradeAutoClickCost;
-                _autoClickSpeed = _autoClickSpeed * 0.5f;
-                manager.autoClickLevel++;
-                Debug.Log(manager.autoClickLevel);
+                Manager.instance.score -= upgradeAutoClickCost;
+                autoClickPerSecond = autoClickPerSecond * 0.8f;
+                Manager.instance.autoClickLevel++;
+                Debug.Log(autoClickPerSecond + "autoclick");
+                Debug.Log(upgradeAutoClickCost + "autoclick");
             }
         }
     }
 
     public IEnumerator CoroutineAutoClick()
     {
-        while(manager.autoClickLevel > 0)
+        while(Manager.instance.autoClickLevel > 0)
         {
-            objectReader.FabricObject();
-            yield return new WaitForSecondsRealtime(_autoClickSpeed);
+            Manager.instance.objectReader.FabricObject();
+            yield return new WaitForSecondsRealtime(autoClickPerSecond);
         }
     }
 
     public void UpgradeGain()
     {
-        if (manager.score >= _upgradeGainCost)
+        if (Manager.instance.score >= upgradeGainCost)
         {
-            manager.score -= _upgradeGainCost;
-            objectReader.coinMultiplicator *= 1.5f;
-            _upgradeGainCost = (int)(Mathf.Pow(_upgradeGainCost, 1.1f));
+            Manager.instance.score -= upgradeGainCost;
+            Manager.instance.objectReader.coinMultiplicator *= 1.5f;
+            upgradeGainCost = (int)(Mathf.Pow(upgradeGainCost, 1.1f));
             
         }
     }
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10,10,100,20), _upgradeGainCost.ToString());
+        GUI.Label(new Rect(10,10,100,20), upgradeGainCost.ToString());
     }
 }

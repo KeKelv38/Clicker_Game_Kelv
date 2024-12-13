@@ -25,7 +25,7 @@ public class ObjectReader : MonoBehaviour
     [SerializeField]
     private float _stepGaugeMax;
 
-    public Manager manager;
+    
 
     public float coinMultiplicator = 1f;
 
@@ -35,7 +35,7 @@ public class ObjectReader : MonoBehaviour
     {
         ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
 
-        manager = FindFirstObjectByType<Manager>();
+        
     }
 
     // Update is called once per frame
@@ -60,14 +60,14 @@ public class ObjectReader : MonoBehaviour
 
     public void FabricObject()
     {
-        _currentStep -= (int)manager.powerClick;
+        _currentStep -= (int)Manager.instance.powerClick;
         _baseStepText.text = _currentStep.ToString("00");
         _stepGauge.fillAmount = 1 - ((float)_currentStep / (float)currentObject.baseStep);
 
         if (_currentStep <= 0)
         {
 
-            manager.score += (int)(currentObject.coinGain * coinMultiplicator);
+            Manager.instance.score += (int)(currentObject.coinGain * coinMultiplicator);
             Debug.Log (currentObject.coinGain);
 
             ReadObject(_objectList[Random.Range(0, _objectList.Length)]);

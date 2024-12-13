@@ -16,4 +16,4 @@ MonoBehaviour:
   baseStep: 6
   category: 1
   objectImage: {fileID: 21300000, guid: 3b2aa42b54c468141bbd68a35a40eaa2, type: 3}
-  coinGain: 5
+  coinGain: 4
