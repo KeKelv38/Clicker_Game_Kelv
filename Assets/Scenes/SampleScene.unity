@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 213419760}
   - component: {fileID: 213419762}
   - component: {fileID: 213419763}
+  - component: {fileID: 213419764}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -557,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectReader: {fileID: 0}
   upgrade1: {fileID: 0}
+  juicyEffect: {fileID: 0}
   score: 0
   scoreText: {fileID: 1025880109}
   powerClick: 1
@@ -610,6 +612,20 @@ MonoBehaviour:
   upgradeClickCostText: {fileID: 12405349}
   upgradeAutoClickCostText: {fileID: 481881054}
   upgradeGainCostText: {fileID: 897046367}
+--- !u!114 &213419764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213419759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4d1df3c038c044dad72a28983ff167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonFabric: {fileID: 0}
+  _animatorFabric: {fileID: 257177982}
 --- !u!1 &257177977
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,8 +638,9 @@ GameObject:
   - component: {fileID: 257177981}
   - component: {fileID: 257177980}
   - component: {fileID: 257177979}
+  - component: {fileID: 257177982}
   m_Layer: 5
-  m_Name: CardButton
+  m_Name: ObjectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,6 +721,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 213419764}
+        m_TargetAssemblyTypeName: JucyEffect, Assembly-CSharp
+        m_MethodName: FabricObjectAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &257177980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +771,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257177977}
   m_CullTransparentMesh: 1
+--- !u!95 &257177982
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257177977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5187c3585103aa4bb291df3f3805fcd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &310841917
 GameObject:
   m_ObjectHideFlags: 0

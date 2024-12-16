@@ -9,6 +9,7 @@ public class Manager : MonoBehaviour
 
     public ObjectReader objectReader;
     public Upgrade1 upgrade1;
+    public JucyEffect juicyEffect;
 
 
 
@@ -35,6 +36,7 @@ public class Manager : MonoBehaviour
     {
         objectReader = FindFirstObjectByType<ObjectReader>();
         upgrade1 = FindFirstObjectByType<Upgrade1>();
+        juicyEffect = FindFirstObjectByType<JucyEffect>();
 
         scoreText.text = score.ToString("00");
     }
