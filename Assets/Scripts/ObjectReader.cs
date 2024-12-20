@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class ObjectReader : MonoBehaviour
 {
@@ -15,10 +16,10 @@ public class ObjectReader : MonoBehaviour
     private Image _objectImage;
 
     [SerializeField]
-    public ObjectTofabric currentObject;
+    public ObjectToFabric currentObject;
 
     [SerializeField]
-    private ObjectTofabric[] _objectList;
+    public WeightedList<ObjectToFabric> objectList;
 
     [SerializeField]
     private Image _stepGauge;
@@ -33,8 +34,8 @@ public class ObjectReader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
-
+        //ReadObject(objectList[Random.Range(0, objectList._weightedElementsList.Count)]);
+        ReadObject(objectList.GetRandomElement());
         
     }
 
@@ -44,7 +45,7 @@ public class ObjectReader : MonoBehaviour
         
     }
 
-    private void ReadObject(ObjectTofabric newObject)
+    private void ReadObject(ObjectToFabric newObject)
     {
         currentObject = newObject;
 
@@ -64,13 +65,16 @@ public class ObjectReader : MonoBehaviour
         _baseStepText.text = _currentStep.ToString("00");
         _stepGauge.fillAmount = 1 - ((float)_currentStep / (float)currentObject.baseStep);
 
+        Manager.instance.juicyEffect.FabricObjectAnimation();
+
         if (_currentStep <= 0)
         {
 
             Manager.instance.score += (int)(currentObject.coinGain * coinMultiplicator);
             Debug.Log (currentObject.coinGain);
 
-            ReadObject(_objectList[Random.Range(0, _objectList.Length)]);
+            //ReadObject(objectList[Random.Range(0, objectList._weightedElementsList.Count)]);
+            ReadObject(objectList.GetRandomElement());
         }
     }
 }

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a13555389a0b854382f7d39e62f7704, type: 3}
-  m_Name: Pen
+  m_Name: Shovel
   m_EditorClassIdentifier: 
-  objectName: Pencil
-  baseStep: 3
+  objectName: Potion
+  baseStep: 9
   category: 2
-  objectImage: {fileID: 21300000, guid: 58ac2d05f7009f540997efab27c731e1, type: 3}
-  coinGain: 100
+  objectImage: {fileID: 21300000, guid: 66eda9fa88ebd7d46a31816b8ae12e8f, type: 3}
+  coinGain: 8

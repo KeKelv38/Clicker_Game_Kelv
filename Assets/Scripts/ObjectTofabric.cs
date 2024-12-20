@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Object", order = 0)]
 
-public class ObjectTofabric : ScriptableObject
+public class ObjectToFabric : ScriptableObject
 {
     public string objectName;
     public int baseStep;
