@@ -9,10 +9,11 @@ public class Manager : MonoBehaviour
 
     public ObjectReader objectReader;
     public Upgrade1 upgrade1;
-    public JucyEffect juicyEffect;
+    public JuicyEffect juicyEffect;
+    public ObjectsAppearAnimation objectsAppearAnimation;
 
 
-
+    
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
@@ -36,7 +37,8 @@ public class Manager : MonoBehaviour
     {
         objectReader = FindFirstObjectByType<ObjectReader>();
         upgrade1 = FindFirstObjectByType<Upgrade1>();
-        juicyEffect = FindFirstObjectByType<JucyEffect>();
+        juicyEffect = FindFirstObjectByType<JuicyEffect>();
+        objectsAppearAnimation = FindFirstObjectByType<ObjectsAppearAnimation>();
 
         scoreText.text = score.ToString("00");
     }

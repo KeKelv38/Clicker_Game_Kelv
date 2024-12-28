@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a13555389a0b854382f7d39e62f7704, type: 3}
-  m_Name: UltimatePen
+  m_Name: Orb
   m_EditorClassIdentifier: 
-  objectName: 
-  baseStep: 0
-  category: 2
-  objectImage: {fileID: 0}
-  coinGain: 0
+  objectName: Orb
+  baseStep: 15
+  category: 0
+  objectImage: {fileID: 21300000, guid: f800eee7513ff854ba1f61f7501a450a, type: 3}
+  coinGain: 28

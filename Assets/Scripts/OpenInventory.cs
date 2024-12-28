@@ -20,7 +20,6 @@ public class OpenInventory : MonoBehaviour
 
     public void OpeningInventory()
     {
-        this.gameObject.SetActive(true);
         _animator.SetTrigger("OpenInventoryTrigger");
     }
 

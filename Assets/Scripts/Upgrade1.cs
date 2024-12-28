@@ -7,7 +7,7 @@ public class Upgrade1 : MonoBehaviour
     public int upgradeClickCost = 10;
     public int upgradeAutoClickCost = 20;
     public int upgradeGainCost = 30;
-    public int upgradeNewObjectCost = 10;
+    public int upgradeNewObjectCost = 40;
     //private int _upgradeDiversityCost = 40;
 
     public float autoClickPerSecond = 0;
@@ -17,13 +17,23 @@ public class Upgrade1 : MonoBehaviour
     [SerializeField]
     private ObjectReader _or;
     private ObjectToFabric _currentObject;
-    private int _counter = 0;
+    //private int _counter = 0;
+    private int _countObjectOrder = 3;
+
+    [SerializeField]
+    private int _shovelWeight = 20;
+    [SerializeField]
+    private int _ancientPaperWeight = 15;
+    [SerializeField]
+    private int _orbWeight = 8;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _currentObject = _or.objectList[3];
+        //_currentObject = _or.objectList[3];
+        
     }
 
     // Update is called once per frame
@@ -32,20 +42,25 @@ public class Upgrade1 : MonoBehaviour
         
     }
 
-    private void RiseCounter()
-    {
-        if (_counter + 1 >= _or.objectList.Count)
-        {
-            _counter = 0;
-        }
-        else
-        {
-            _counter += 1;
-        }
+    //----------------------------compteur, pour les poids----------------------------
+    //private void RiseCounter()
+    //{
+    //    if (_counter + 1 >= _or.objectList.Count)
+    //    {
+    //        _counter = 0;
+    //    }
+    //    else
+    //    {
+    //        _counter += 1;
+    //    }
+    //
+    //    _currentObject = _or.objectList[ _counter ];
+    //}
 
-        _currentObject = _or.objectList[ _counter ];
-    }
 
+
+
+    //permet d'améliorer la puissance de clique
     public void UpgradeClick()
     {
         if(Manager.instance.score >= upgradeClickCost)
@@ -57,6 +72,7 @@ public class Upgrade1 : MonoBehaviour
         }
     }
 
+    //permet de cliquer automatiquement, si amélioré, alors réduit le temps entre chaque auto-clique
     public void UpgradeAutoClick()
     {
         if (Manager.instance.score >= upgradeAutoClickCost)
@@ -80,7 +96,8 @@ public class Upgrade1 : MonoBehaviour
             }
         }
     }
-
+    
+    //couroutine pour l'auto-clique
     public IEnumerator CoroutineAutoClick()
     {
         while(Manager.instance.autoClickLevel > 0)
@@ -90,6 +107,7 @@ public class Upgrade1 : MonoBehaviour
         }
     }
 
+    //permet d'améliorer le gain de monnaie des objets vendus
     public void UpgradeGain()
     {
         if (Manager.instance.score >= upgradeGainCost)
@@ -101,19 +119,39 @@ public class Upgrade1 : MonoBehaviour
         }
     }
 
+    //permet de changer les poids des objets
     public void UpgradeNewObjectTest()
     {
-        if (Manager.instance.score >= upgradeNewObjectCost)
+        if (Manager.instance.score >= upgradeNewObjectCost && _countObjectOrder == 3)
         {
             upgradeNewObjectLevel++;
-            Manager.instance.score -= upgradeAutoClickCost;
+            Manager.instance.score -= upgradeNewObjectCost;
             upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
             //Manager.instance.objectReader.objectList.Add(_shovel, 2);
-            Manager.instance.objectReader.objectList.SetWeightOfObject(_currentObject, 5);
-            RiseCounter();
-            Debug.Log(_counter);
-
+            Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 20);
+            _countObjectOrder++;
+            //RiseCounter();
+            //Debug.Log(_counter);
+            Manager.instance.objectsAppearAnimation.ShovelAppearAnimationStart();
         }
+        else if (Manager.instance.score >= upgradeNewObjectCost && _countObjectOrder == 4)
+        {
+            upgradeNewObjectLevel++;
+            Manager.instance.score -= upgradeNewObjectCost;
+            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
+            Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 15);
+            _countObjectOrder++;
+            Manager.instance.objectsAppearAnimation.AncientPaperAppearAnimationStart();
+        }
+        else if (Manager.instance.score >= upgradeNewObjectCost && _countObjectOrder == 5)
+        {
+            upgradeNewObjectLevel++;
+            Manager.instance.score -= upgradeNewObjectCost;
+            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
+            Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 8);
+            Manager.instance.objectsAppearAnimation.OrbAppearAnimationStart();
+        }
+
     }
 
 
