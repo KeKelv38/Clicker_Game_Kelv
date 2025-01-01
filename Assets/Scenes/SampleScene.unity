@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 191556036}
   - component: {fileID: 191556035}
   - component: {fileID: 191556034}
+  - component: {fileID: 191556037}
   m_Layer: 5
   m_Name: UpgradeNewObject
   m_TagString: Untagged
@@ -636,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -661,6 +662,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191556032}
   m_CullTransparentMesh: 1
+--- !u!95 &191556037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191556032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22a12a592c4899242bb8a3fc12d09e0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &192655372
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +831,7 @@ GameObject:
   - component: {fileID: 213419763}
   - component: {fileID: 213419764}
   - component: {fileID: 213419765}
+  - component: {fileID: 213419766}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -832,6 +855,7 @@ MonoBehaviour:
   upgrade1: {fileID: 0}
   juicyEffect: {fileID: 0}
   objectsAppearAnimation: {fileID: 0}
+  upgradeColorAnimation: {fileID: 0}
   score: 0
   scoreText: {fileID: 1025880109}
   powerClick: 1
@@ -922,6 +946,22 @@ MonoBehaviour:
   _animator1: {fileID: 940671407}
   _animator2: {fileID: 1539320498}
   _animator3: {fileID: 1971940714}
+--- !u!114 &213419766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213419759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22671a0e5c96e3d4cb394e9e70b9d6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator1: {fileID: 1501303467}
+  _animator2: {fileID: 1982273246}
+  _animator3: {fileID: 1330352662}
+  _animator4: {fileID: 191556037}
 --- !u!1 &257177977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3536,7 @@ GameObject:
   - component: {fileID: 1330352661}
   - component: {fileID: 1330352660}
   - component: {fileID: 1330352659}
+  - component: {fileID: 1330352662}
   m_Layer: 5
   m_Name: UpgradeGain
   m_TagString: Untagged
@@ -3594,7 +3635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3619,6 +3660,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330352657}
   m_CullTransparentMesh: 1
+--- !u!95 &1330352662
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330352657}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea1061d0ab80d4c4a8fe29c8304038e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1406326597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3761,7 @@ GameObject:
   - component: {fileID: 1501303466}
   - component: {fileID: 1501303465}
   - component: {fileID: 1501303464}
+  - component: {fileID: 1501303467}
   m_Layer: 5
   m_Name: UpgradeClick
   m_TagString: Untagged
@@ -3797,7 +3860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3822,6 +3885,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501303462}
   m_CullTransparentMesh: 1
+--- !u!95 &1501303467
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501303462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aeb27691080a2654683894ba77d40492, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1539320496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,11 +4382,11 @@ MonoBehaviour:
   objectList:
     _weightedElementsList:
     - Element: {fileID: 11400000, guid: 264d1791818d5564f8e6fa748737de0e, type: 2}
-      Weight: 100
+      Weight: 70
     - Element: {fileID: 11400000, guid: 5c5d60da7fb895e4ca53158657d2ee11, type: 2}
-      Weight: 40
+      Weight: 35
     - Element: {fileID: 11400000, guid: 5dc85326fdf7d9046838cc9fcdc4e8c0, type: 2}
-      Weight: 30
+      Weight: 20
     - Element: {fileID: 11400000, guid: 30b4be070e6a3274e9d93f57e8013730, type: 2}
       Weight: 0
     - Element: {fileID: 11400000, guid: 671d30c23d57d7a4482857572cab8124, type: 2}
@@ -4570,6 +4654,7 @@ GameObject:
   - component: {fileID: 1982273245}
   - component: {fileID: 1982273244}
   - component: {fileID: 1982273243}
+  - component: {fileID: 1982273246}
   m_Layer: 5
   m_Name: UpgradeAutoClick
   m_TagString: Untagged
@@ -4668,7 +4753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4693,6 +4778,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982273241}
   m_CullTransparentMesh: 1
+--- !u!95 &1982273246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982273241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b432c0ddae1d8747bbb6f815f6a4238, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2088255089
 GameObject:
   m_ObjectHideFlags: 0

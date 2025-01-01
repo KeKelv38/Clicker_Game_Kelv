@@ -11,9 +11,10 @@ public class Manager : MonoBehaviour
     public Upgrade1 upgrade1;
     public JuicyEffect juicyEffect;
     public ObjectsAppearAnimation objectsAppearAnimation;
+    public UpgradeColorAnimation upgradeColorAnimation;
 
 
-    
+
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
