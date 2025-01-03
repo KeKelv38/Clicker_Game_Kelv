@@ -10,7 +10,7 @@ public class ObjectReader : MonoBehaviour
     private int _currentStep;
 
     [SerializeField]
-    private TextMeshProUGUI _nameText, _baseStepText, _categoryText;
+    private TextMeshProUGUI _nameText, _baseStepText, _categoryText, _priceText;
 
     [SerializeField]
     private Image _objectImage;
@@ -54,6 +54,7 @@ public class ObjectReader : MonoBehaviour
         _nameText.text = currentObject.objectName.ToString();
         _baseStepText.text = currentObject.baseStep.ToString("00");
         _categoryText.text = currentObject.category.ToString();
+        _priceText.text = currentObject.coinGain.ToString("00");
 
         _objectImage.sprite = currentObject.objectImage;
         _stepGauge.fillAmount = 0;

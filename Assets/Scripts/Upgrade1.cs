@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Upgrade1 : MonoBehaviour
 {
-    public int upgradeClickCost = 10;
-    public int upgradeAutoClickCost = 20;
-    public int upgradeGainCost = 30;
-    public int upgradeNewObjectCost = 40;
+    public int upgradeClickCost = 50;
+    public int upgradeAutoClickCost = 100;
+    public int upgradeGainCost = 300;
+    public int upgradeNewObjectCost = 400;
     //private int _upgradeDiversityCost = 40;
 
     public float autoClickPerSecond = 0;
@@ -19,13 +19,6 @@ public class Upgrade1 : MonoBehaviour
     private ObjectToFabric _currentObject;
     //private int _counter = 0;
     private int _countObjectOrder = 3;
-
-    [SerializeField]
-    private int _shovelWeight = 20;
-    [SerializeField]
-    private int _ancientPaperWeight = 15;
-    [SerializeField]
-    private int _orbWeight = 8;
 
 
 
@@ -63,7 +56,14 @@ public class Upgrade1 : MonoBehaviour
     //permet d'améliorer la puissance de clique
     public void UpgradeClick()
     {
-        if(Manager.instance.score >= upgradeClickCost)
+        if(Manager.instance.score >= upgradeClickCost && Manager.instance.powerClick == 1)
+        {
+            Manager.instance.score -= upgradeClickCost;
+            Manager.instance.powerClick = Manager.instance.powerClick * 2f;
+            upgradeClickCost = (int)(upgradeClickCost * 1.5f);
+            Debug.Log(upgradeClickCost);
+        }
+        else if (Manager.instance.score >= upgradeClickCost)
         {
             Manager.instance.score -= upgradeClickCost;
             Manager.instance.powerClick = Manager.instance.powerClick * 1.5f;
