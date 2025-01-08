@@ -44,7 +44,7 @@ public class ObjectReader : MonoBehaviour
     {
         
     }
-
+    //lis l'objet et ses infos
     private void ReadObject(ObjectToFabric newObject)
     {
         currentObject = newObject;
@@ -59,7 +59,8 @@ public class ObjectReader : MonoBehaviour
         _objectImage.sprite = currentObject.objectImage;
         _stepGauge.fillAmount = 0;
     }
-
+    
+    //cliquer pour réduire le nombre de step de création en fonction de la puissance du clic
     public void FabricObject()
     {
         _currentStep -= (int)Manager.instance.powerClick;
@@ -68,14 +69,21 @@ public class ObjectReader : MonoBehaviour
 
         Manager.instance.juicyEffect.FabricObjectAnimation();
 
+        
+
         if (_currentStep <= 0)
         {
-
+            StartCoroutine(StepGaugeWait());
             Manager.instance.score += (int)(currentObject.coinGain * coinMultiplicator);
             Debug.Log (currentObject.coinGain);
 
             //ReadObject(objectList[Random.Range(0, objectList._weightedElementsList.Count)]);
             ReadObject(objectList.GetRandomElement());
         }
+    }
+
+    public IEnumerator StepGaugeWait()
+    {
+        yield return new WaitForSecondsRealtime(1);
     }
 }
