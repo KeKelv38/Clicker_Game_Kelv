@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Orb
   m_EditorClassIdentifier: 
   objectName: Orb
-  baseStep: 15
+  baseStep: 28
   category: 0
   objectImage: {fileID: 21300000, guid: b42c604613048614abed27a1142317fa, type: 3}
-  coinGain: 28
+  coinGain: 36

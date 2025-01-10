@@ -20,6 +20,9 @@ public class Upgrade1 : MonoBehaviour
     //private int _counter = 0;
     private int _countObjectOrder = 3;
 
+    [SerializeField]
+    private GameObject _panelMaxUpgrade;
+
 
 
     // Start is called before the first frame update
@@ -82,14 +85,14 @@ public class Upgrade1 : MonoBehaviour
                 autoClickPerSecond = 5;
                 Manager.instance.score -= upgradeAutoClickCost;
                 Manager.instance.autoClickLevel = 1;
-                upgradeAutoClickCost = (int)(upgradeAutoClickCost * 1.5f);
+                upgradeAutoClickCost = (int)(upgradeAutoClickCost * 1.3f);
                 StartCoroutine(CoroutineAutoClick());
             }
             else
             {
                 Manager.instance.score -= upgradeAutoClickCost;
-                autoClickPerSecond = autoClickPerSecond * 0.8f;
-                upgradeAutoClickCost = (int)(upgradeAutoClickCost * 1.5f);
+                autoClickPerSecond = autoClickPerSecond * 0.7f;
+                upgradeAutoClickCost = (int)(upgradeAutoClickCost * 1.3f);
                 Manager.instance.autoClickLevel++;
                 Debug.Log(autoClickPerSecond + "autoclick");
                 Debug.Log(upgradeAutoClickCost + "autoclick");
@@ -114,7 +117,7 @@ public class Upgrade1 : MonoBehaviour
         {
             Manager.instance.score -= upgradeGainCost;
             Manager.instance.objectReader.coinMultiplicator *= 1.5f;
-            upgradeGainCost = (int)(Mathf.Pow(upgradeGainCost, 1.1f));
+            upgradeGainCost = (int)(upgradeGainCost * 1.4f);
             
         }
     }
@@ -126,7 +129,7 @@ public class Upgrade1 : MonoBehaviour
         {
             upgradeNewObjectLevel++;
             Manager.instance.score -= upgradeNewObjectCost;
-            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
+            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.2f));
             //Manager.instance.objectReader.objectList.Add(_shovel, 2);
             Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 18);
             _countObjectOrder++;
@@ -138,7 +141,7 @@ public class Upgrade1 : MonoBehaviour
         {
             upgradeNewObjectLevel++;
             Manager.instance.score -= upgradeNewObjectCost;
-            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
+            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.2f));
             Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 15);
             _countObjectOrder++;
             Manager.instance.objectsAppearAnimation.AncientPaperAppearAnimationStart();
@@ -150,6 +153,7 @@ public class Upgrade1 : MonoBehaviour
             Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 8);
             Manager.instance.objectsAppearAnimation.OrbAppearAnimationStart();
             _countObjectOrder = 0;
+            _panelMaxUpgrade.SetActive(true);
         }
 
     }
