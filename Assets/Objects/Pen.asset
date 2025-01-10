@@ -15,5 +15,5 @@ MonoBehaviour:
   objectName: Pencil
   baseStep: 3
   category: 2
-  objectImage: {fileID: 21300000, guid: 58ac2d05f7009f540997efab27c731e1, type: 3}
+  objectImage: {fileID: 21300000, guid: 555936c760c0e954389d17634af7a138, type: 3}
   coinGain: 2

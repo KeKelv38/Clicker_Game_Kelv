@@ -17,10 +17,10 @@ public class UpgradeText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        upgradeClickText.text = Manager.instance.powerClick.ToString("000");
+        upgradeClickText.text = Manager.instance.powerClick.ToString("*"+"000");
         upgradeAutoClickText.text = Manager.instance.upgrade1.autoClickPerSecond.ToString("0.000" + "*s");
-        upgradeGainText.text = Manager.instance.objectReader.coinMultiplicator.ToString("000");
-        upgradeNewObjectLevelText.text = Manager.instance.upgrade1.upgradeNewObjectLevel.ToString("000");
+        upgradeGainText.text = Manager.instance.objectReader.coinMultiplicator.ToString("*"+"000");
+        upgradeNewObjectLevelText.text = Manager.instance.upgrade1.upgradeNewObjectLevel.ToString("Lvl "+"000");
 
         upgradeClickCostText.text = Manager.instance.upgrade1.upgradeClickCost.ToString("000");
         upgradeAutoClickCostText.text = Manager.instance.upgrade1.upgradeAutoClickCost.ToString("000");

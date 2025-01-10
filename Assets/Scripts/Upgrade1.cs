@@ -7,7 +7,7 @@ public class Upgrade1 : MonoBehaviour
     public int upgradeClickCost = 50;
     public int upgradeAutoClickCost = 100;
     public int upgradeGainCost = 300;
-    public int upgradeNewObjectCost = 400;
+    public int upgradeNewObjectCost = 500;
     //private int _upgradeDiversityCost = 40;
 
     public float autoClickPerSecond = 0;
@@ -120,7 +120,7 @@ public class Upgrade1 : MonoBehaviour
     }
 
     //permet de changer les poids des objets
-    public void UpgradeNewObjectTest()
+    public void UpgradeNewObject()
     {
         if (Manager.instance.score >= upgradeNewObjectCost && _countObjectOrder == 3)
         {
@@ -147,7 +147,6 @@ public class Upgrade1 : MonoBehaviour
         {
             upgradeNewObjectLevel++;
             Manager.instance.score -= upgradeNewObjectCost;
-            upgradeNewObjectCost = (int)(Mathf.Pow(upgradeNewObjectCost, 1.1f));
             Manager.instance.objectReader.objectList.SetWeightOfObject(_or.objectList[_countObjectOrder], 8);
             Manager.instance.objectsAppearAnimation.OrbAppearAnimationStart();
             _countObjectOrder = 0;

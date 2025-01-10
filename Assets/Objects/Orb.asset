@@ -15,5 +15,5 @@ MonoBehaviour:
   objectName: Orb
   baseStep: 15
   category: 0
-  objectImage: {fileID: 21300000, guid: f800eee7513ff854ba1f61f7501a450a, type: 3}
+  objectImage: {fileID: 21300000, guid: b42c604613048614abed27a1142317fa, type: 3}
   coinGain: 28

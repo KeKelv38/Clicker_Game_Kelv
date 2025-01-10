@@ -17,7 +17,7 @@ public class OpenInventory : MonoBehaviour
     {
         
     }
-
+    //fait apparaitre la liste des objets que le joueur peut craft
     public void OpeningInventory()
     {
         _animator.SetTrigger("OpenInventoryTrigger");

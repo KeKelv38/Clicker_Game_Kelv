@@ -23,7 +23,7 @@ public class UpgradeColorAnimation : MonoBehaviour
     void Update()
     {
         //quand le score est > au prix de l'amélioration alors le bouton s'affiche en vert, pour les upgrades 1 à 4
-        if (Manager.instance.score > Manager.instance.upgrade1.upgradeClickCost)
+        if (Manager.instance.score >= Manager.instance.upgrade1.upgradeClickCost)
         {
             _animator1.SetBool("Upgrade1ColorBool", true);
         }
@@ -33,7 +33,7 @@ public class UpgradeColorAnimation : MonoBehaviour
         }
         //-----------------------------------------------------------------------------------
 
-        if (Manager.instance.score > Manager.instance.upgrade1.upgradeAutoClickCost)
+        if (Manager.instance.score >= Manager.instance.upgrade1.upgradeAutoClickCost)
         {
             _animator2.SetBool("Upgrade2ColorBool", true);
         }
@@ -43,7 +43,7 @@ public class UpgradeColorAnimation : MonoBehaviour
         }
         //-----------------------------------------------------------------------------------
 
-        if (Manager.instance.score > Manager.instance.upgrade1.upgradeGainCost)
+        if (Manager.instance.score >= Manager.instance.upgrade1.upgradeGainCost)
         {
             _animator3.SetBool("Upgrade3ColorBool", true);
         }
@@ -53,7 +53,7 @@ public class UpgradeColorAnimation : MonoBehaviour
         }
         //-----------------------------------------------------------------------------------
 
-        if (Manager.instance.score > Manager.instance.upgrade1.upgradeNewObjectCost)
+        if (Manager.instance.score >= Manager.instance.upgrade1.upgradeNewObjectCost)
         {
             _animator4.SetBool("Upgrade4ColorBool", true);
         }

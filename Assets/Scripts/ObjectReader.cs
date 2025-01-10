@@ -82,6 +82,12 @@ public class ObjectReader : MonoBehaviour
         }
     }
 
+
+
+
+
+
+    //ca marche pas ca 
     public IEnumerator StepGaugeWait()
     {
         yield return new WaitForSecondsRealtime(1);

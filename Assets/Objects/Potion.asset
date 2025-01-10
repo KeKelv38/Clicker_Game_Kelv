@@ -15,5 +15,5 @@ MonoBehaviour:
   objectName: Potion
   baseStep: 8
   category: 0
-  objectImage: {fileID: 21300000, guid: 10b87c8d44132a94885d82b2498ca56b, type: 3}
+  objectImage: {fileID: 21300000, guid: 21d0709e70e348546b2cbeb74c4ad5f7, type: 3}
   coinGain: 6
